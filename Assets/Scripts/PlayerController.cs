@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement; //Load Scenes 
 
 public class PlayerController : MonoBehaviour
@@ -12,6 +13,9 @@ public class PlayerController : MonoBehaviour
     private int score = 0;
     // Used for Player health
     public int health = 5;
+
+    // Utilisé pour l'UI du score du joueur
+    public Text scoreText;
 
     // Vector3 - Representation of 3D vectors and points.
     // Catch the x, y, z axis for translation and rotation movements.
@@ -65,6 +69,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log($"Score: {score}");
             // Destroy after touch the coin.
             Destroy(other.gameObject);
+            
         }
         // Player health is affected
         if (other.CompareTag("Trap"))
