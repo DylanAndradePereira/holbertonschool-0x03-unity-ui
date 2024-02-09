@@ -57,6 +57,16 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene(0, LoadSceneMode.Single);
         }
     }
+
+    //met a jour l'UI du score
+    void SetScoreText()
+    {
+        scoreText.text = $"Score: {score.ToString()}";
+        // Debug.Log(score.ToString());
+
+    }
+
+
     // Function to control Player game properties
     void OnTriggerEnter(Collider other)
     {
@@ -65,11 +75,12 @@ public class PlayerController : MonoBehaviour
         {
             // Increase score when touch the coin
             score++;
+            SetScoreText();
             // Print in Console the score
-            Debug.Log($"Score: {score}");
+            // Debug.Log($"Score: {score}");
             // Destroy after touch the coin.
             Destroy(other.gameObject);
-            
+
         }
         // Player health is affected
         if (other.CompareTag("Trap"))
