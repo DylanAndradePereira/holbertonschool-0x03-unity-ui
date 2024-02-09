@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     // Utilisé pour l'UI du score du joueur
     public Text scoreText;
 
+    // Utilisé pour l'UI de la vie du joueur
+    public Text healthText;
+
     // Vector3 - Representation of 3D vectors and points.
     // Catch the x, y, z axis for translation and rotation movements.
     Vector3 translateObj;
@@ -66,6 +69,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    void SetHealthText()
+    {
+        healthText.text = $"health: {health.ToString()}";
+    }
+
 
     // Function to control Player game properties
     void OnTriggerEnter(Collider other)
@@ -88,6 +96,7 @@ public class PlayerController : MonoBehaviour
             // decrement the value of health when the Player touches
             // an object tagged Trap
             health--;
+            SetHealthText();
             // Print in Console the health
             Debug.Log($"Health: {health}");
         }
