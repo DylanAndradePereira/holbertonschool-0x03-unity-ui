@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
             health--;
             SetHealthText();
             // Print in Console the health
-            Debug.Log($"Health: {health}");
+            // Debug.Log($"Health: {health}");
         }
         // Player wins!!!
         if (other.CompareTag("Goal"))
